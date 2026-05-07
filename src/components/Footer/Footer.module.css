@@ -1,0 +1,40 @@
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--black-soft);
+  margin-top: 80px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.25em;
+  color: var(--white-dim);
+}
+
+.copy {
+  font-size: 0.75rem;
+  color: var(--white-muted);
+  letter-spacing: 0.04em;
+}
+
+.ig a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--white-muted);
+  letter-spacing: 0.05em;
+  transition: color var(--transition);
+}
+
+.ig a:hover { color: var(--accent); }
