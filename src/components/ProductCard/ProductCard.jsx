@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import formatPrice from "../../utils/formatPrice";
 import styles from "./ProductCard.module.css";
-
-const formatPrice = (price) =>
-  new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 }).format(price);
 
 const ProductCard = ({ product }) => {
   const { addItem, cart } = useCart();

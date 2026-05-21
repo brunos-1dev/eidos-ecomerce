@@ -2,10 +2,8 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { getProductById } from "../../data/products";
 import { useCart } from "../../context/CartContext";
+import formatPrice from "../../utils/formatPrice";
 import styles from "./ProductDetail.module.css";
-
-const formatPrice = (price) =>
-  new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 }).format(price);
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -53,6 +51,29 @@ const ProductDetail = () => {
         <div className={styles.gallery}>
           <div className={styles.mainImage}>
             <img src={product.images[activeImg]} alt={product.name} />
+            {product.images.length > 1 && (
+              <>
+                <button
+                  className={`${styles.arrow} ${styles.arrowPrev}`}
+                  onClick={() => setActiveImg((prev) => (prev - 1 + product.images.length) % product.images.length)}
+                  aria-label="Imagen anterior"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+                <button
+                  className={`${styles.arrow} ${styles.arrowNext}`}
+                  onClick={() => setActiveImg((prev) => (prev + 1) % product.images.length)}
+                  aria-label="Imagen siguiente"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+                <span className={styles.imageCounter}>{activeImg + 1} / {product.images.length}</span>
+              </>
+            )}
           </div>
           {product.images.length > 1 && (
             <div className={styles.thumbs}>

@@ -47,6 +47,7 @@
 .gallery { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 88px; }
 
 .mainImage {
+  position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--black-card);
@@ -62,6 +63,50 @@
 }
 
 .mainImage:hover img { transform: scale(1.04); }
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-light);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition), background var(--transition);
+  z-index: 2;
+}
+
+.mainImage:hover .arrow { opacity: 1; }
+.arrow:hover { background: rgba(10, 10, 10, 0.85); }
+
+.arrowPrev { left: 12px; }
+.arrowNext { right: 12px; }
+
+.imageCounter {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--white-muted);
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(4px);
+  padding: 3px 10px;
+  border-radius: 99px;
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 2;
+}
+
+.mainImage:hover .imageCounter { opacity: 1; }
 
 .thumbs { display: flex; gap: 8px; }
 

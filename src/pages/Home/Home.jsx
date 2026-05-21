@@ -21,7 +21,7 @@ const Home = () => {
             Diseños <br />
             <em>con sentido</em>
           </h1>
-          
+
         </div>
         <div className={styles.heroDivider} aria-hidden="true" />
       </section>

@@ -11,11 +11,7 @@ const Navbar = () => {
       <nav className={`${styles.nav} container`}>
         {/* Logo */}
         <Link to="/" className={styles.logo}>
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <rect width="32" height="32" fill="#f5f5f0" />
-            <text x="16" y="22" textAnchor="middle" fill="#0a0a0a"
-              fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">E</text>
-          </svg>
+          <img src="/images/logo/logo_blanco_transparente.png" alt="EIDOS" className={styles.logoImg} />
           <span className={styles.logoText}>EIDOS</span>
         </Link>
 
